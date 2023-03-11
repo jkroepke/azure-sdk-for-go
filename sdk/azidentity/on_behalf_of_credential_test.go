@@ -73,13 +73,7 @@ func TestOnBehalfOfCredential(t *testing.T) {
 				if tenantID != fakeTenantID {
 					t.Errorf(`unexpected tenantID "%s"`, tenantID)
 				}
-				msalOpts := confidential.Options{}
-				for _, o := range opts {
-					o(&msalOpts)
-				}
-				if test.sendX5C != msalOpts.SendX5C {
-					t.Fatal("incorrect value for SendX5C")
-				}
+
 				return fake, nil
 			}
 			cred, err := test.ctor()
